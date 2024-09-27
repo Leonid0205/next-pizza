@@ -6,13 +6,11 @@ export const getAvailablePizzaSizes = (
   type: PizzaType
 ): Variant[] => {
   const filtredPizzasByType = items.filter((item) => item.pizzaType === type);
-  return pizzaSizes
-    .map((item) => ({
-      name: item.name,
-      value: item.value,
-      disabled: !filtredPizzasByType.some(
-        (pizza) => Number(pizza.size) === Number(item.value)
-      ),
-    }))
-    .filter((item) => !item.disabled);
+  return pizzaSizes.map((item) => ({
+    name: item.name,
+    value: item.value,
+    disabled: !filtredPizzasByType.some(
+      (pizza) => Number(pizza.size) === Number(item.value)
+    ),
+  }));
 };
